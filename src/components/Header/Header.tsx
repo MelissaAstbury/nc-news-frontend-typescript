@@ -1,18 +1,45 @@
+import { useState } from "react";
+
 import './Header.scss';
 import NavItem from './NavItem/NavItem';
 
 const Header: React.FC = () => {
+  const [burgerMenuToggled, setBurgerMenuToggled] = useState(false);
+
   return (
     <header>
+      <nav>
       <h1>NC-News</h1>
-      <div className="nav-items">
-        <p>option 1</p>
-        <p>option 2</p>
-        <p>option 3</p>
-        {/* <NavItem>Option 1</NavItem>
-        <NavItem>Option 2</NavItem>
-        <NavItem>Option 3</NavItem> */}
-      </div>
+      <div
+      className="hamburger"
+      onClick={() => {
+        setBurgerMenuToggled(!burgerMenuToggled);
+      }}
+    >
+      <div
+        className={burgerMenuToggled ? "line modified-line-01" : "line"}
+      ></div>
+      <div
+        className={burgerMenuToggled ? "line modified-line-02" : "line"}
+      ></div>
+      <div
+        className={burgerMenuToggled ? "line modified-line-03" : "line"}
+      ></div>
+    </div>
+    <ul
+      className={burgerMenuToggled ? "nav-list open" : "nav-list"}
+      onClick={() => {
+        setBurgerMenuToggled(false);
+      }}
+    >
+      <NavItem link="/" exact>
+        Home
+      </NavItem>
+      <NavItem link="/topic1" exact>
+        Topic 1
+      </NavItem>
+    </ul>
+      </nav>
     </header>
   );
 };

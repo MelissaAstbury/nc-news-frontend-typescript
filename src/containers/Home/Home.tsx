@@ -3,7 +3,7 @@ import React from 'react'
 const Home: React.FC = () => {
     return (
         <div>
-            <p>bam</p>
+            <p>This is the home page</p>
         </div>
     )
 }

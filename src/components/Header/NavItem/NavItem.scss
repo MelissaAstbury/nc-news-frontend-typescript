@@ -1,0 +1,29 @@
+.nav-item {
+  &:not(:last-child) {
+    margin-right: 70px;
+  }
+
+  a {
+    color: #fff;
+    &.active:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      width: 100%;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.5s;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
