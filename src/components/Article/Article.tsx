@@ -1,4 +1,4 @@
-import { Article } from "../../store/actions/articlesAction";
+import { Article } from "../../types/types";
 import "./Article.scss";
 
 interface Props {
@@ -6,10 +6,9 @@ interface Props {
 }
 
 const ArticleList: React.FC<Props> = ({article}) => {
-    console.log(article);
     return (
         <ul>
-            <li>hi</li>
+            <li>{article.title}</li>
         </ul>
     )
 };

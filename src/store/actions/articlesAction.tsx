@@ -1,23 +1,13 @@
 import axios from "axios";
 import * as type from "./actionTypes";
-import {Action} from '../reducers/articleReducer';
-
-export interface Article {
-    article_id: number,
-    title: string,
-    created_at: string,
-    votes: number,
-    topic: string,
-    author: string,
-    comment_count: string
-}
+import { Article } from "../../types/types";
 
 export const getAllArticlesStart = () => {
     return (dispatch: any) => {
         axios 
         .get("https://mels-news-api.herokuapp.com/api/articles")
         .then((response) => {
-            dispatch(getAllArticlesSuccess(response.data))
+            dispatch(getAllArticlesSuccess(response.data.articles))
         }).catch((error) => {
             dispatch(getAllArticlesFail(error));
         })

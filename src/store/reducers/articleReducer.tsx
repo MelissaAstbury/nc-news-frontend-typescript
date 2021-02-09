@@ -1,5 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import { Article } from '../actions/articlesAction';
+import { Article } from '../../types/types';
 
 interface Store {
   articles: Article[],

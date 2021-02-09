@@ -9,7 +9,7 @@ import './index.scss';
 import App from './App';
 import articleReducer from "./store/reducers/articleReducer";
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   articleReducer: articleReducer
 });
 
