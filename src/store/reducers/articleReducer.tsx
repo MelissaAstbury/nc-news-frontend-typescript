@@ -8,30 +8,30 @@ interface Store {
   loading: boolean
 }
 
-interface ActionA {
+interface GetArticleStart {
   type: 'GET_ARTICLES_START';
 }
-interface ActionB {
+interface GetArticleSuccess {
   type: 'GET_ARTICLES_SUCCESS';
   articles: Article[]
 }
-interface ActionC {
+interface GetArticleFail {
   type: 'GET_ARTICLES_FAIL';
   error: string
 }
-interface ActionD {
+interface GetArticleByIdStart {
   type: 'GET_ARTICLE_BY_ID_START';
 }
-interface ActionE {
+interface GetArticleByIdSuccess {
   type: 'GET_ARTICLE_BY_ID_SUCCESS';
   article: Article
 }
-interface ActionF {
+interface GetArticleByIdFail {
   type: 'GET_ARTICLE_BY_ID_FAIL';
   error: string
 }
 
-export type Action = ActionA | ActionB | ActionC | ActionD | ActionE | ActionF;
+export type Action = GetArticleStart | GetArticleSuccess | GetArticleFail | GetArticleByIdStart | GetArticleByIdSuccess | GetArticleByIdFail;
 
 const initialState: Store = {
   articles: [],

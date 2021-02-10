@@ -8,9 +8,11 @@ import thunk from "redux-thunk";
 import './index.scss';
 import App from './App';
 import articleReducer from "./store/reducers/articleReducer";
+import commentsReducer from "./store/reducers/commentReducer";
 
 const rootReducer = combineReducers({
-  articleReducer: articleReducer
+  articleReducer: articleReducer,
+  commentsReducer: commentsReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>

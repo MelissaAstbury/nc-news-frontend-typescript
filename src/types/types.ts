@@ -6,4 +6,13 @@ export interface Article {
     topic: string,
     author: string,
     comment_count: string
+};
+
+export interface Comment {
+    comment_id: Number,
+    body: string,
+    votes: Number,
+    created_at: string,
+    article_id: Number,
+    author: string
 }

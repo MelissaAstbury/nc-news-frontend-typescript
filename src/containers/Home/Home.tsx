@@ -8,7 +8,7 @@ import { getAllArticlesStart } from "../../store/actions/articlesAction";
 import "./Home.scss";
 
 const Home: React.FC = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const articles = useSelector((state: RootState) => state.articleReducer.articles)
 
     React.useEffect(() => {

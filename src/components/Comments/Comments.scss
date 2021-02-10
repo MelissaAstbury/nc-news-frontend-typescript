@@ -1,0 +1,23 @@
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.comment-container {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    display: flex;
+    width: 300px;
+    // margin: 5px 20px 15px 20px;
+    // margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+  }
+}

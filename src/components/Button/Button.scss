@@ -27,6 +27,36 @@
   }
 }
 
+.danger {
+  background-color: transparent;
+  border: 4px solid #de7777;
+
+  &:hover {
+    background-color: #f2a6a6;
+    color: white;
+  }
+}
+
+.warning {
+  background-color: transparent;
+  border: 4px solid #70a6df;
+
+  &:hover {
+    background-color: #9fc7f2;
+    color: white;
+  }
+}
+
+.interact {
+  background-color: transparent;
+  border: 4px solid #63e387;
+
+  &:hover {
+    background-color: #8ae3a3;
+    color: white;
+  }
+}
+
 .slim {
   padding: 4px 8px;
   width: 180px;
