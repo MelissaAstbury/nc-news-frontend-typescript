@@ -1,0 +1,33 @@
+.button {
+  display: block;
+  border: none;
+  border: 4px solid #c2c2c1;
+  border-radius: 6px;
+  width: fit-content;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    filter: brightness(103%);
+  }
+}
+
+.success {
+  background-color: transparent;
+  border: 4px solid #c2c2c1;
+
+  &:hover {
+    background-color: #c2c2c1;
+    color: white;
+  }
+}
+
+.slim {
+  padding: 4px 8px;
+  width: 180px;
+}

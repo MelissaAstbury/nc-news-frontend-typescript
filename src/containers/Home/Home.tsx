@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from '../..';
 
+import { RootState } from '../..';
 import SingleArticle from '../../components/ArticleCard/ArticleCard';
 import { Article } from "../../types/types";
 import { getAllArticlesStart } from "../../store/actions/articlesAction";
@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     const dispatch = useDispatch()
     const articles = useSelector((state: RootState) => state.articleReducer.articles)
 
-    useEffect(() => {
+    React.useEffect(() => {
         dispatch(getAllArticlesStart())
     }, [dispatch])
     return (

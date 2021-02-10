@@ -1,8 +1,12 @@
  const Topic1: React.FC = () => {
     return (
-        <div>
-            <p>This is topic 1 page</p>
-        </div>
+        <main>
+            <ul>
+                <li>Cooking</li>
+                <li>Football</li>
+                <li>Coding</li>
+            </ul>
+        </main>
     )
 };
 

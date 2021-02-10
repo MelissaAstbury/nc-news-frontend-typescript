@@ -27,3 +27,29 @@ export const getAllArticlesFail = (error: string) => {
         error: error
     };
 };
+
+export const getAllArticleByIdStart = (articleId: string) => {
+    return (dispatch: any) => {
+        axios 
+            .get(`https://mels-news-api.herokuapp.com/api/articles/${articleId}`)
+            .then((response) => {
+                dispatch(getAllArticleByIdSuccess(response.data.article))
+            }).catch((error) => {
+                dispatch(getAllArticleByIdFail(error));
+            })
+    }
+}
+
+export const getAllArticleByIdSuccess = (article: Article) => {
+    return {
+        type: type.GET_ARTICLE_BY_ID_SUCCESS,
+        article: article
+    };
+}
+
+export const getAllArticleByIdFail = (error: string) => {
+    return {
+        type: type.GET_ARTICLE_BY_ID_FAIL,
+        error: error
+    };
+};
