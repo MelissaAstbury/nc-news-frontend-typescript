@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from '../..';
 
-import SingleArticle from '../../components/Article/Article';
+import SingleArticle from '../../components/ArticleCard/ArticleCard';
 import { Article } from "../../types/types";
 import { getAllArticlesStart } from "../../store/actions/articlesAction";
 import "./Home.scss";
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         dispatch(getAllArticlesStart())
     }, [dispatch])
     return (
-        <div>
+        <main>
             {
                 articles.length > 0 ? 
                 articles.map((article: Article) => {
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                 : 
                 <h3>No Articles Found!</h3>
             }
-        </div>
+        </main>
     )
 }
 

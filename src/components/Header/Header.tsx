@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         Home
       </NavItem>
       <NavItem link="/topic1" exact>
-        Topic 1
+        Topics
       </NavItem>
     </ul>
       </nav>
