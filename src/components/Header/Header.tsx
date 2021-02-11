@@ -35,9 +35,13 @@ const Header: React.FC = () => {
       <NavItem link="/" exact>
         Home
       </NavItem>
-      <NavItem link="/topic1" exact>
+      <NavItem link="/users" exact>
+        Users
+      </NavItem>
+      <NavItem link="/topics" exact>
         Topics
       </NavItem>
+     
     </ul>
       </nav>
     </header>

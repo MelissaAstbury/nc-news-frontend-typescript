@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { FaReadme } from "react-icons/fa";
+import { FaReadme, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import { RootState } from '../..';
 import Button from "../../components/Button/Button";
@@ -34,6 +34,12 @@ const SingleArticle: React.FC<Props> = ({match}) => {
                     <p>{article.author}</p>
                     <p>{article.topic}</p>
                     <p>Votes: {article.votes}</p>
+                    <div className="vote">
+                        <p>Have your say!</p>
+                        <FaThumbsUp />
+                        <FaThumbsDown />
+
+                    </div>
                     <p>Comment Count: {article.comment_count}</p>
                     <Comments articleId={articleId} />
                 </div>

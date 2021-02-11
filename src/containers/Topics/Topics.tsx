@@ -1,10 +1,10 @@
- const Topic1: React.FC = () => {
+import "./Topics.scss";
+
+const Topic1: React.FC = () => {
     return (
         <main>
             <ul>
-                <li>Cooking</li>
-                <li>Football</li>
-                <li>Coding</li>
+                <li>I will get Topics API here</li>
             </ul>
         </main>
     )

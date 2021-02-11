@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import Button from "../Button/Button";
 import { RootState } from "../../";
@@ -26,10 +27,12 @@ const Comments: React.FC<Props> = ({articleId}) => {
                 {comments.map((comment) => (
                     <div key={comment.comment_id.toString()} className='comment-container'>
                         <p>{comment.body}</p>
+                        <FaThumbsUp />
+                        <FaThumbsDown />
                         <div>
                         <Button btnType="danger slim">Delete Comment</Button>
                         <Button btnType="warning slim">Edit Comment</Button>
-                        </div>    
+                        </div>  
                     </div>
                 ))}
             </div>
