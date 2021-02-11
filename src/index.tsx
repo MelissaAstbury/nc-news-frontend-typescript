@@ -9,10 +9,12 @@ import './index.scss';
 import App from './App';
 import articleReducer from "./store/reducers/articleReducer";
 import commentsReducer from "./store/reducers/commentReducer";
+import userReducer from "./store/reducers/userReducer";
 
 const rootReducer = combineReducers({
   articleReducer: articleReducer,
-  commentsReducer: commentsReducer
+  commentsReducer: commentsReducer,
+  userReducer: userReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>

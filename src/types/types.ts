@@ -16,3 +16,9 @@ export interface Comment {
     article_id: Number,
     author: string
 }
+
+export interface User {
+    username: string,
+    name: string,
+    avatar_url: string
+}

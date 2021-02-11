@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../components/Button/Button";
-import { RootState } from '../..';
+import { RootState } from '../../index';
 import SingleArticle from '../../components/ArticleCard/ArticleCard';
 import { Article } from "../../types/types";
 import { getAllArticlesStart } from "../../store/actions/articlesAction";
