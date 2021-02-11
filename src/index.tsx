@@ -10,11 +10,13 @@ import App from './App';
 import articleReducer from "./store/reducers/articleReducer";
 import commentsReducer from "./store/reducers/commentReducer";
 import userReducer from "./store/reducers/userReducer";
+import topicReducer from "./store/reducers/topicReducer";
 
 const rootReducer = combineReducers({
   articleReducer: articleReducer,
   commentsReducer: commentsReducer,
-  userReducer: userReducer
+  userReducer: userReducer,
+  topicReducer: topicReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>

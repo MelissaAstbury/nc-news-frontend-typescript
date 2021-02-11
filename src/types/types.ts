@@ -22,3 +22,8 @@ export interface User {
     name: string,
     avatar_url: string
 }
+
+export interface Topic {
+    slug: string,
+    description: string
+}

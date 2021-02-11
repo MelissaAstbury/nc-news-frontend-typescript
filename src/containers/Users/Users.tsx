@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
+import Button from "../../components/Button/Button";
 import { RootState } from "../../index";
 import { getAllUsersStart } from "../../store/actions/usersAction";
 import { User } from "../../types/types";
@@ -14,6 +16,10 @@ const Users: React.FC = () => {
         dispatch(getAllUsersStart())
     },[dispatch])
     return (
+        <>
+        <Link to="/">
+        <Button btnType="slim">Back</Button>
+        </Link>
         <main>
             {users.length > 0 ?
         users.map((user: User) => {
@@ -29,6 +35,7 @@ const Users: React.FC = () => {
         <h3>No Users Found!</h3>
         }
         </main>
+        </>
     )
 };
 
