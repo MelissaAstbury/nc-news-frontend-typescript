@@ -7,7 +7,7 @@ import Button from '../../components/Button/Button';
 import './NewArticle.scss';
 import { useDispatch } from 'react-redux';
 
-const NewArticle = () => {
+const NewArticle: React.FC = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = React.useState('');
   const [title, setTitle] = React.useState('');

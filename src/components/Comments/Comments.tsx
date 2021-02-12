@@ -1,43 +1,96 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 
-import Button from "../Button/Button";
-import { RootState } from "../../";
-import { getAllArticleCommentsStart } from "../../store/actions/commentsAction";
-import "./Comments.scss";
+import Button from '../Button/Button';
+import { RootState } from '../../';
+import {
+  getAllArticleCommentsStart,
+  postArticleCommentStart,
+} from '../../store/actions/commentsAction';
+import './Comments.scss';
+import { CreateComment } from '../../types/types';
 
 interface Props {
-    articleId: string
+  articleId: string;
 }
 
-const Comments: React.FC<Props> = ({articleId}) => {
-    const dispatch = useDispatch();
-    const comments = useSelector((state: RootState) => state.commentsReducer.comments)
+const Comments: React.FC<Props> = ({ articleId }) => {
+  const dispatch = useDispatch();
+  const comments = useSelector(
+    (state: RootState) => state.commentsReducer.comments
+  );
 
-    React.useEffect(() => {
-        dispatch(getAllArticleCommentsStart(articleId))
-    },[dispatch]);
+  const [username, setUsername] = React.useState('');
+  const [body, setBody] = React.useState('');
 
-    return (
-        <section>
-            <h3>Comments</h3>
-            <div className="comments">
-            <Button btnType="interact">Add New Comment</Button>
-                {comments.map((comment) => (
-                    <div key={comment.comment_id.toString()} className='comment-container'>
-                        <p>{comment.body}</p>
-                        <FaThumbsUp />
-                        <FaThumbsDown />
-                        <div>
-                        <Button btnType="danger slim">Delete Comment</Button>
-                        <Button btnType="warning slim">Edit Comment</Button>
-                        </div>  
-                    </div>
-                ))}
+  const handleSubmit = (e: MouseEvent) => {
+    e.preventDefault();
+    const newComment: CreateComment = {
+      username: username,
+      body: body,
+    };
+    if (newComment.username.length < 1 || newComment.body.length < 1) {
+      alert('Fields are not complete');
+      return;
+    }
+    dispatch(postArticleCommentStart(articleId, newComment));
+    setUsername('');
+    setBody('');
+  };
+
+  React.useEffect(() => {
+    dispatch(getAllArticleCommentsStart(articleId));
+  }, [dispatch]);
+
+  return (
+    <section>
+      <h3>Add a new comment here:</h3>
+      <div className="comments">
+        <form>
+          <label>
+            Username:
+            <input
+              placeholder="username"
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              value={username}
+              required
+            />
+          </label>
+          <label>
+            Comment:
+            <input
+              placeholder="comment"
+              onChange={(e) => {
+                setBody(e.target.value);
+              }}
+              value={body}
+              required
+            />
+          </label>
+          <Button btnType="interact" clicked={handleSubmit}>
+            Add New Comment
+          </Button>
+        </form>
+        {comments.map((comment) => (
+          <div
+            key={comment.comment_id.toString()}
+            className="comment-container"
+          >
+            <p>{comment.body}</p>
+            <FaThumbsUp />
+            <FaThumbsDown />
+            <div>
+              <Button btnType="danger slim">Delete Comment</Button>
+              <Button btnType="warning slim">Edit Comment</Button>
             </div>
-        </section>
-    )
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Comments;

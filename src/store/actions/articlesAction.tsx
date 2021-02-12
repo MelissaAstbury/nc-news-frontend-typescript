@@ -64,7 +64,6 @@ export const postNewArticleStart = (newArticle: CreateArticle) => {
         dispatch(postNewArticleSuccess(response.data.article));
       })
       .catch((error) => {
-        console.log(error);
         dispatch(postNewArticleFail(error));
       });
   };
