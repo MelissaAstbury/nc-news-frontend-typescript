@@ -7,6 +7,12 @@ export interface Article {
     author: string,
     comment_count: string
 };
+export interface CreateArticle {
+    username: string,
+    title: string,
+    topic: string,
+    body: string,
+};
 
 export interface Comment {
     comment_id: Number,

@@ -2,7 +2,7 @@ import "./Button.scss";
 
 interface Props {
     btnType: string;
-    clicked?: () => void;
+    clicked?: any;
     children: React.ReactNode;
 }
 

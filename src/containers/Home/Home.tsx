@@ -1,38 +1,39 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import Button from "../../components/Button/Button";
+import Button from '../../components/Button/Button';
 import { RootState } from '../../index';
 import SingleArticle from '../../components/ArticleCard/ArticleCard';
-import { Article } from "../../types/types";
-import { getAllArticlesStart } from "../../store/actions/articlesAction";
-import "./Home.scss";
+import { Article } from '../../types/types';
+import { getAllArticlesStart } from '../../store/actions/articlesAction';
+import './Home.scss';
 
 const Home: React.FC = () => {
-    const dispatch = useDispatch();
-    const articles = useSelector((state: RootState) => state.articleReducer.articles)
+  const dispatch = useDispatch();
+  const articles = useSelector(
+    (state: RootState) => state.articleReducer.articles
+  );
 
-    React.useEffect(() => {
-        dispatch(getAllArticlesStart())
-    }, [dispatch])
-    return (
-        <>
-        <Link to="/newArticle">
+  React.useEffect(() => {
+    dispatch(getAllArticlesStart());
+  }, [dispatch]);
+  return (
+    <>
+      <Link to="/newArticle">
         <Button btnType="success">Add new article</Button>
-        </Link>
-        <main>
-            {
-                articles.length > 0 ? 
-                articles.map((article: Article) => {
-                    return <SingleArticle key={article.title} article={article}/>
-                })
-                : 
-                <h3>No Articles Found!</h3>
-            }
-        </main>
-        </>
-    )
-}
+      </Link>
+      <main>
+        {articles.length > 0 ? (
+          articles.map((article: Article) => {
+            return <SingleArticle key={article.article_id} article={article} />;
+          })
+        ) : (
+          <h3>No Articles Found!</h3>
+        )}
+      </main>
+    </>
+  );
+};
 
 export default Home;

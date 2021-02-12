@@ -1,37 +1,13 @@
-import * as actionTypes from "../actions/actionTypes";
+import * as actionTypes from '../actions/actionTypes';
 import { Article } from '../../types/types';
+import { Action } from '../../types/articleTypes';
 
 interface Store {
-  articles: Article[],
-  article: Article | null,
-  error: string | null,
-  loading: boolean
+  articles: Article[];
+  article: Article | null;
+  error: string | null;
+  loading: boolean;
 }
-
-interface GetArticleStart {
-  type: 'GET_ARTICLES_START';
-}
-interface GetArticleSuccess {
-  type: 'GET_ARTICLES_SUCCESS';
-  articles: Article[]
-}
-interface GetArticleFail {
-  type: 'GET_ARTICLES_FAIL';
-  error: string
-}
-interface GetArticleByIdStart {
-  type: 'GET_ARTICLE_BY_ID_START';
-}
-interface GetArticleByIdSuccess {
-  type: 'GET_ARTICLE_BY_ID_SUCCESS';
-  article: Article
-}
-interface GetArticleByIdFail {
-  type: 'GET_ARTICLE_BY_ID_FAIL';
-  error: string
-}
-
-export type Action = GetArticleStart | GetArticleSuccess | GetArticleFail | GetArticleByIdStart | GetArticleByIdSuccess | GetArticleByIdFail;
 
 const initialState: Store = {
   articles: [],
@@ -39,6 +15,8 @@ const initialState: Store = {
   error: null,
   loading: false,
 };
+
+console.log(initialState.articles.length);
 
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
@@ -71,6 +49,23 @@ const reducer = (state = initialState, action: Action) => {
         loading: false,
       };
     case actionTypes.GET_ARTICLE_BY_ID_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    case actionTypes.POST_ARTICLE_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.POST_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        articles: [...initialState.articles, action.article],
+        loading: false,
+      };
+    case actionTypes.POST_ARTICLE_FAIL:
       return {
         ...state,
         loading: false,
