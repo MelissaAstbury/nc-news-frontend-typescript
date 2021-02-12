@@ -61,7 +61,6 @@ export const postNewArticleStart = (newArticle: CreateArticle) => {
     axios
       .post('https://mels-news-api.herokuapp.com/api/articles', newArticle)
       .then((response) => {
-        console.log(response);
         dispatch(postNewArticleSuccess(response.data.article));
       })
       .catch((error) => {

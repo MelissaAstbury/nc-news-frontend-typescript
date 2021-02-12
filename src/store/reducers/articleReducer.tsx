@@ -13,10 +13,8 @@ const initialState: Store = {
   articles: [],
   article: null,
   error: null,
-  loading: false,
+  loading: true,
 };
-
-console.log(initialState.articles.length);
 
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
@@ -62,7 +60,7 @@ const reducer = (state = initialState, action: Action) => {
     case actionTypes.POST_ARTICLE_SUCCESS:
       return {
         ...state,
-        articles: [...initialState.articles, action.article],
+        articles: [...state.articles, action.article],
         loading: false,
       };
     case actionTypes.POST_ARTICLE_FAIL:
