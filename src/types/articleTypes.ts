@@ -34,6 +34,21 @@ interface PostArticleFail {
   error: string;
 }
 
+interface UpdateArticleStart {
+  type: 'UPDATE_ARTICLE_BY_ID_START';
+}
+
+interface UpdateArticleSuccess {
+  type: 'UPDATE_ARTICLE_BY_ID_SUCCESS';
+  updatedArticle: Article;
+  articleId: number;
+}
+
+interface UpdateArticleFail {
+  type: 'UPDATE_ARTICLE_BY_ID_FAIL';
+  error: string;
+}
+
 export type Action =
   | GetArticleStart
   | GetArticleSuccess
@@ -43,4 +58,7 @@ export type Action =
   | GetArticleByIdFail
   | PostArticleStart
   | PostArticleSuccess
-  | PostArticleFail;
+  | PostArticleFail
+  | UpdateArticleStart
+  | UpdateArticleSuccess
+  | UpdateArticleFail;

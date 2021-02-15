@@ -17,6 +17,20 @@ const initialState: Store = {
 };
 
 const reducer = (state = initialState, action: Action) => {
+  const findAndUpdateById = (
+    articleId: number,
+    updatedArticle: Article
+  ): Article[] => {
+    const index = state.articles
+      .map((article: Article) => {
+        return article.article_id;
+      })
+      .indexOf(articleId);
+
+    state.articles[index] = updatedArticle;
+    console.log(state.articles[0].votes);
+    return state.articles;
+  };
   switch (action.type) {
     case actionTypes.GET_ARTICLES_START:
       return {
@@ -64,6 +78,23 @@ const reducer = (state = initialState, action: Action) => {
         loading: false,
       };
     case actionTypes.POST_ARTICLE_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    case actionTypes.UPDATE_ARTICLE_BY_ID_START:
+      return {
+        ...state,
+        loading: true,
+      };
+    case actionTypes.UPDATE_ARTICLE_BY_ID_SUCCESS:
+      return {
+        ...state,
+        articles: findAndUpdateById(action.articleId, action.updatedArticle),
+        loading: false,
+      };
+    case actionTypes.UPDATE_ARTICLE_BY_ID_FAIL:
       return {
         ...state,
         loading: false,
